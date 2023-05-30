@@ -12,7 +12,7 @@ import {
 } from './NewsList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNewsList } from 'redux/news/selectors';
-import { getOurNews } from 'redux/news/operetions';
+import { getOurNews } from 'redux/news/operations';
 
 const NewsList = () => {
   const dispatch = useDispatch();

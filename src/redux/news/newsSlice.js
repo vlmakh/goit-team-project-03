@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getOurNews } from './operetions';
+import { getOurNews } from './operations';
 
 const initialState = {
   newsList: [],

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://pets-back-end.onrender.com';
+axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
 
 export const getOurNews = createAsyncThunk(
   'api/news',

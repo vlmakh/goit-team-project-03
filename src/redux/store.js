@@ -14,7 +14,7 @@ import { authReducer } from './auth/authSlice';
 import { contactsReducer } from './pets/petsSlice';
 import { noticesSlice } from './notices/noticesSlice';
 import { noticeItemSlice } from './notices/noticeItemSlice';
-import { newsReducer } from './news/slice';
+import { newsReducer } from './news/newsSlice';
 
 const persistConfig = {
   key: 'token',
