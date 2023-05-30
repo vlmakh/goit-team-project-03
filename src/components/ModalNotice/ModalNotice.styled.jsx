@@ -53,8 +53,10 @@ export const ListItemTextStyled = styled(ListItemText)(({ theme }) => ({
 
 
 export const LinkStyled = styled(Link)(({ theme }) => ({
+  textDecoration: 'none',
   color: '#FFC107',
   textDecorationColor: '#FFC107',
+  transition: 'color 250ms ease-in',
   '&:hover': {
     color: '#54ADFF',
     textDecorationColor: '#54ADFF',
