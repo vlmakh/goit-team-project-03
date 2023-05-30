@@ -9,14 +9,15 @@ const initialState = {
 const newsSlice = createSlice({
   name: 'news',
   initialState,
-  extraReducers: {
-    [getOurNews.pending](state, __) {
-      state.isLoading = true;
-    },
-    [getOurNews.fulfilled](state, action) {
-      state.isLoading = false;
-      state.newsList = action.payload;
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(getOurNews.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getOurNews.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.newsList = action.payload;
+      });
   },
 });
 
