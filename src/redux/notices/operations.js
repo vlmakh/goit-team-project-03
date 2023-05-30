@@ -2,14 +2,14 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
-axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
+const MAIL_URL = process.env.REACT_APP_MAIN_URL;
 const errorMsg = "Something's wrong. Please update page and try again";
 
 export const fetchUserNotices = createAsyncThunk(
   'notices/fetchNotices',
   async (page, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/notices/user`, {
+      const response = await axios.get(`${MAIN_URL}/api/notices/user`, {
         params: { page },
       });
       return response.data;
@@ -24,7 +24,7 @@ export const fetchNoticeById = createAsyncThunk(
   'notices/fetchNoticeById',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/notices/notice/${id}`);
+      const response = await axios.get(`${MAIN_URL}/api/notices/notice/${id}`);
       return response.data;
     } catch (error) {
       toast.error(errorMsg);
@@ -38,7 +38,7 @@ export const fetchNoticesByCategory = createAsyncThunk(
   async ({ category, search, page, limit = 10 }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/api/notices/?category=${category}&search=${search}&page=${page}&limit=${limit}`
+        `${MAIN_URL}/api/notices/?category=${category}&search=${search}&page=${page}&limit=${limit}`
       );
       return response.data;
     } catch (error) {
@@ -52,7 +52,7 @@ export const fetchNoticesFavourite = createAsyncThunk(
   'notices/fetchNoticesFavourite',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/notices/favorite`);
+      const response = await axios.get(`${MAIN_URL}/api/notices/favorite`);
       return response.data;
     } catch (error) {
       toast.error(errorMsg);
@@ -66,7 +66,7 @@ export const addNotice = createAsyncThunk(
   async ([category, data], thunkAPI) => {
     try {
       const response = await axios.post(
-        `/api/notices/category?category=${category}`,
+        `${MAIN_URL}/api/notices/category?category=${category}`,
         data
       );
       return response.data;
@@ -81,7 +81,9 @@ export const makeNoticeFavourite = createAsyncThunk(
   'notices/makeNoticeFavourite',
   async (id, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`api/notices/favorite/${id}`);
+      const { data } = await axios.patch(
+        `${MAIN_URL}/api/notices/favorite/${id}`
+      );
 
       return data.data.result;
     } catch (error) {
@@ -95,7 +97,9 @@ export const removeNoticeFavourite = createAsyncThunk(
   'notices/removeNoticeFavourite',
   async (id, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`api/notices/favorite/${id}`);
+      const { data } = await axios.delete(
+        `${MAIN_URL}/api/notices/favorite/${id}`
+      );
 
       return data.result;
     } catch (error) {
@@ -109,7 +113,7 @@ export const deleteNotice = createAsyncThunk(
   'notices/deleteNotice',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`api/notices/${id}`);
+      const response = await axios.delete(`${MAIN_URL}/api/notices/${id}`);
       return response.data;
     } catch (error) {
       toast.error(errorMsg);
