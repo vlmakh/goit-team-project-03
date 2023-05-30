@@ -79,6 +79,7 @@ export const Img = styled.img`
   height: 182px;
   border-radius: 40px;
   background-color: #ebebeb;
+  object-fit: cover;
 `;
 
 export const DivEditPhoto = styled.div`
@@ -153,6 +154,10 @@ export const Input = styled(Field)`
   letter-spacing: 0.04em;
   color: #000000;
 
+  &.editing {
+    border: 1px solid #20e820;
+  }
+
   @media screen and (min-width: 768px) {
     width: 255px;
     height: 32px;
@@ -160,15 +165,15 @@ export const Input = styled(Field)`
     font-size: 16px;
     letter-spacing: 0.04em;
   }
-
-  &.editing {
-    border: 1px solid #20e820;
-  }
 `;
 
 export const DivLogOut = styled.div`
   display: flex;
-  margin-top: 15px;
+  margin-top: 25px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 15px;
+  }
 `;
 
 export const ButtonLogOut = styled.button`

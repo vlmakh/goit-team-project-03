@@ -21,7 +21,10 @@ import {
 import { getNoticeById } from 'api/NoticesApi';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
-
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import PhoneIcon from '@mui/icons-material/Phone';
+import MailIcon from '@mui/icons-material/Mail';
 
 const IMG_PLACEHOLDER = 'https://placehold.co/600x650';
 
@@ -35,6 +38,10 @@ const ModalNotice = ({
   const [notice, setNotice] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isChildOpen, setIsChildOpen] = useState(false);
+  const toggleChildModal = () => {
+    setIsChildOpen(isChildOpen => !isChildOpen);
+  };
   const user = useSelector(selectUser);
   const getPhone = owner => (
     <LinkStyled href={`tel: ${owner?.phone}`}>{owner?.phone}</LinkStyled>
@@ -46,6 +53,7 @@ const ModalNotice = ({
     name,
     title,
     imgURL,
+    price,
     category,
     dateOfBirth,
     breed,
@@ -55,8 +63,9 @@ const ModalNotice = ({
     owner,
   } = notice;
 
-  const infoDefinitions = [
+  let infoDefinitions = [
     { name: 'Name:', definition: name },
+    { name: 'Price:', definition: price },
     { name: 'Birthday:', definition: dateOfBirth },
     { name: 'Breed:', definition: breed },
     { name: 'Place:', definition: place },
@@ -64,6 +73,7 @@ const ModalNotice = ({
     { name: 'Email:', definition: getEmail(owner) },
     { name: 'Phone:', definition: getPhone(owner) },
   ];
+  infoDefinitions = infoDefinitions.filter((item) => item.definition)
 
   useEffect(() => {
     if (isOpen) {
@@ -163,13 +173,32 @@ const ModalNotice = ({
                 />
               </Button>
               <Button
-                component="a"
-                href={`tel:${getPhone(user)}`}
                 variant="outlined"
                 sx={{ width: '125px', marginLeft: '15px' }}
+                onClick={() => setIsChildOpen(true)}
               >
                 Contact
               </Button>
+              <BasicModal isOpen={isChildOpen} toggleModal={toggleChildModal}>
+                <List>
+                  <ListItem>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <MailIcon />
+                      </ListItemIcon>
+                      {getEmail(owner)}
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <PhoneIcon />
+                      </ListItemIcon>
+                      {getPhone(owner)}
+                    </ListItemButton>
+                  </ListItem>
+                </List>
+              </BasicModal>
             </Box>
           </>
         )}

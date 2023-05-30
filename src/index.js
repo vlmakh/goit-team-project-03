@@ -7,13 +7,14 @@ import { Provider } from 'react-redux';
 import { persistor, store } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/goit-team-project-03">
+    <BrowserRouter basename="command-repo-yourpet-frontend">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
+      <App />
+      </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
