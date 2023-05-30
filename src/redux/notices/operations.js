@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
-const MAIL_URL = process.env.REACT_APP_MAIN_URL;
+const MAIN_URL = process.env.REACT_APP_MAIN_URL;
 const errorMsg = "Something's wrong. Please update page and try again";
 
 export const fetchUserNotices = createAsyncThunk(

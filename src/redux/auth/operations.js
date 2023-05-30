@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const MAIL_URL = process.env.REACT_APP_MAIN_URL;
+const MAIN_URL = process.env.REACT_APP_MAIN_URL;
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -17,7 +17,7 @@ export const register = createAsyncThunk(
   async (creadential, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        '${MAIN_URL}/api/users/register',
+        `${MAIN_URL}/api/users/register`,
         creadential
       );
       setAuthHeader(data.token);
@@ -34,7 +34,7 @@ export const login = createAsyncThunk(
   async (creadential, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        '${MAIN_URL}/api/users/login',
+        `${MAIN_URL}/api/users/login`,
         creadential
       );
       setAuthHeader(data.user.token);

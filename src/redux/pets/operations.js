@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
 // axios.defaults.baseURL = 'https://pets-back-end.onrender.com';
-const MAIL_URL = process.env.REACT_APP_MAIN_URL;
+const MAIN_URL = process.env.REACT_APP_MAIN_URL;
 const errorMsg = "Something's wrong. Please update page and try again";
 
 export const fetchPets = createAsyncThunk(
