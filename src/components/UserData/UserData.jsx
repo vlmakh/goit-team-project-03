@@ -23,12 +23,12 @@ import {
   DivLogOut,
   ButtonLogOut,
   DivIconCheck,
-  IconCheck,
+  IconCheck, EmailStyled
 } from './UserData.styled';
 
 const validationSchema = yup.object().shape({
   Name: yup.string().min(3).max(17),
-  Email: yup.string().email('Invalid email'),
+  // Email: yup.string().email('Invalid email'),
   Phone: yup.string(),
   Birthday: yup.string(),
   City: yup.string(),
@@ -40,7 +40,7 @@ const UserData = () => {
 
   const initialValues = {
     Name: name || 'Your name',
-    Email: email,
+    // Email: email,
     Phone: phone || '+38 000 000 00 00',
     Birthday: birthday || '00.00.0000',
     City: city || 'Dnipro',
@@ -135,6 +135,8 @@ const UserData = () => {
           validationSchema={validationSchema}
         >
           <Form>
+            <EmailStyled>{email}</EmailStyled>
+
             {Object.keys(formValues).map(field => renderField(field))}
 
             <DivLogOut>

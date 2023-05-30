@@ -249,3 +249,10 @@ export const IconCross = styled(RxCross1)`
   cursor: pointer;
   color: #e82d20;
 `;
+
+export const EmailStyled = styled.div`
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 20px;
+`;
