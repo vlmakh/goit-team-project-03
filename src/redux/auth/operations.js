@@ -75,7 +75,7 @@ export const getCurrentUser = createAsyncThunk(
 );
 
 export const updateUserInfo = createAsyncThunk(
-  'pets/updateUserInfo',
+  'auth/updateUserInfo',
   async (userData, thunkAPI) => {
     try {
       const response = await axios.put(`/api/users/update`, userData);
