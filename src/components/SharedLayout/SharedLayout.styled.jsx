@@ -9,6 +9,7 @@ import lg_bg_1x from './bg-img/lg/lg-bg-1x.png';
 import lg_bg_2x from './bg-img/lg/lg-bg-2x.png';
 
 export const Section = styled.div`
+  height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
