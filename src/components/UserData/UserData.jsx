@@ -138,7 +138,7 @@ const UserData = () => {
             {Object.keys(formValues).map(field => renderField(field))}
 
             <DivLogOut>
-              <ButtonLogOut type="button" onClick={toggleModal}>
+              <ButtonLogOut type="button" onClick={toggleModal} aria-label="logout">
                 <IconLogOut />
                 Log Out
               </ButtonLogOut>

@@ -81,7 +81,7 @@ const LoginForm = () => {
               </InputAdornment>
           }}
         />
-        <FormButton type="submit" variant="contained" disabled={isLoading}>
+        <FormButton type="submit" variant="contained" disabled={isLoading} aria-label="login">
           Login
         </FormButton>
          <Typography component="p" sx={{ textAlign: 'center', mt: '15px', fontSize: '12px'}}>

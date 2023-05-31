@@ -19,7 +19,7 @@ const Header = () => {
     <MainHeader>
       <HeaderContainer>
             <Navigation />
-            <BurgerMenuBtn type="button" onClick={toggleMobileMenu}>
+            <BurgerMenuBtn type="button" onClick={toggleMobileMenu} aria-label="menu">
               <BurgerMenu />
             </BurgerMenuBtn>
             {isOpen && <MobileMenuMain closeMenu={toggleMobileMenu} />}

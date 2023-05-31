@@ -234,8 +234,7 @@ const AddPetForm = () => {
                     }
                   }}
                 >
-                  Next
-                  {/* <span>Next</span> */}
+                  Next                  
                   <Pets
                     sx={{ width: 24, height: 24, transform: 'rotate(25deg)' }}
                   />

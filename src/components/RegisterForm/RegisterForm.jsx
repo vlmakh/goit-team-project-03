@@ -128,7 +128,7 @@ const RegisteForm = () => {
           }}
         />
 
-        <FormButton type="submit" variant="contained" disabled={isLoading}>
+        <FormButton type="submit" variant="contained" disabled={isLoading}  aria-label="register">
           Registration
         </FormButton>
         <Typography
