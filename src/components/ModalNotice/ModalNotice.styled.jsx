@@ -1,5 +1,19 @@
 import { styled } from '@mui/material/styles';
-import { Box, Chip, Link, ListItemText, Typography } from '@mui/material';
+import { Box, Chip, Link, ListItemText, Typography, Paper } from '@mui/material';
+
+export const DialogPaperStyled = styled(Paper)(({ theme }) => ({
+  padding: '25px 0',
+  [theme.breakpoints.down('tablet')]: {
+    padding: '35px 0',
+    maxWidth: 280,
+    minWidth: 280,
+    borderRadius: 20,
+  },
+  [theme.breakpoints.up('tablet')]: {
+    minWidth: 608,
+    borderRadius: 40
+  },
+}));
 
 export const ImageBoxStyled = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -22,6 +36,8 @@ export const CategoryChipStyled = styled(Chip)(({ theme }) => ({
 
 export const PetImageStyled = styled('img')(({ theme }) => ({
   maxWidth: '260px',
+  borderBottomLeftRadius: '35px',
+  borderBottomRightRadius: '35px',
   [theme.breakpoints.down('tablet')]: {
     maxWidth: '230px',
   },
@@ -49,6 +65,7 @@ export const InfoTitleStyled = styled(Typography)(({ theme }) => ({
 
 export const ListItemTextStyled = styled(ListItemText)(({ theme }) => ({
   fontSize: '16px',
+  margin: '3px 0 0 0'
 }));
 
 

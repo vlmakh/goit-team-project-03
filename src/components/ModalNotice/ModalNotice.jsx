@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BasicModal from 'components/Modal/BasicModal';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {
   CategoryChipStyled,
   ImageBoxStyled,
@@ -16,13 +16,11 @@ import {
   PetImageStyled,
   InfoTitleStyled,
   ListItemTextStyled,
-  LinkStyled,
+  LinkStyled, DialogPaperStyled,
 } from './ModalNotice.styled';
-import { getNoticeById } from 'api/NoticesApi';
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
+import {getNoticeById} from 'api/NoticesApi';
+import {useSelector} from 'react-redux';
+import {selectUser} from 'redux/auth/selectors';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
 
@@ -64,21 +62,21 @@ const ModalNotice = ({
   } = notice;
 
   let infoDefinitions = [
-    { name: 'Name:', definition: name },
-    { name: 'Price:', definition: price },
-    { name: 'Birthday:', definition: dateOfBirth },
-    { name: 'Breed:', definition: breed },
-    { name: 'Place:', definition: place },
-    { name: 'The sex:', definition: sex },
-    { name: 'Email:', definition: getEmail(owner) },
-    { name: 'Phone:', definition: getPhone(owner) },
+    {name: 'Name:', definition: name},
+    {name: 'Price:', definition: price},
+    {name: 'Birthday:', definition: dateOfBirth},
+    {name: 'Breed:', definition: breed},
+    {name: 'Place:', definition: place},
+    {name: 'The sex:', definition: sex},
+    {name: 'Email:', definition: getEmail(owner)},
+    {name: 'Phone:', definition: getPhone(owner)},
   ];
   infoDefinitions = infoDefinitions.filter((item) => item.definition)
 
   useEffect(() => {
     if (isOpen) {
       getNoticeById(noticeId)
-        .then(({ notice }) => {
+        .then(({notice}) => {
           setNotice(notice);
           setIsLoading(false);
         })
@@ -89,16 +87,26 @@ const ModalNotice = ({
     }
   }, [isOpen, noticeId, user?._id]);
 
+  function formatCategory(category) {
+    if (category === 'lost-found') {
+      return 'lost/found';
+    } else if (category === 'for-free') {
+      return 'in good hands';
+    }
+
+    return category;
+  }
+
   return (
     <>
-      <BasicModal isOpen={isOpen} toggleModal={toggleModal}>
+      <BasicModal isOpen={isOpen} toggleModal={toggleModal} dialogPaper={DialogPaperStyled}>
         {isLoading && (
-          <Box sx={{ textAlign: 'center' }}>
-            <CircularProgress />
+          <Box sx={{textAlign: 'center'}}>
+            <CircularProgress/>
           </Box>
         )}
         {!isLoading && errorMessage && (
-          <Box sx={{ textAlign: 'center' }}>Nothing Found</Box>
+          <Box sx={{textAlign: 'center'}}>Nothing Found</Box>
         )}
         {!isLoading && !errorMessage && (
           <>
@@ -108,14 +116,14 @@ const ModalNotice = ({
                   src={imgURL ? imgURL : IMG_PLACEHOLDER}
                   alt={name}
                 />
-                <CategoryChipStyled label={category} />
+                <CategoryChipStyled label={formatCategory(category)}/>
               </ImageBoxStyled>
               <InfoBoxStyled>
                 <InfoTitleStyled variant="h2" component="h2">
                   {title}
                   <List>
                     {infoDefinitions.map((item, index) => (
-                      <ListItem key={index} sx={{ padding: 0 }}>
+                      <ListItem key={index} sx={{padding: 0}}>
                         <ListItemTextStyled
                           primary={
                             <Typography
@@ -152,7 +160,7 @@ const ModalNotice = ({
             </Box>
             <Typography
               component="p"
-              sx={{ maxWidth: '680px', marginTop: '20px', fontWeight: 500 }}
+              sx={{maxWidth: '680px', marginTop: '20px', fontWeight: 500}}
             >
               Comments: {comments}
             </Typography>
@@ -160,44 +168,35 @@ const ModalNotice = ({
               display="flex"
               justifyContent="end"
               alignItems="center"
-              sx={{ marginTop: '20px' }}
+              sx={{marginTop: '20px'}}
             >
               <Button
                 onClick={() => handleToggleFavorite(noticeId)}
                 variant={isFavorite ? 'contained' : 'outlined'}
-                sx={{ width: '125px' }}
+                sx={{width: '125px'}}
               >
                 {isFavorite ? `Remove` : `Add to`} &nbsp;{' '}
                 <FavoriteBorderIcon
-                  sx={{ verticalAlign: 'top', fontSize: '24px' }}
+                  sx={{verticalAlign: 'top', fontSize: '24px'}}
                 />
               </Button>
               <Button
                 variant="outlined"
-                sx={{ width: '125px', marginLeft: '15px' }}
+                sx={{width: '125px', marginLeft: '15px'}}
                 onClick={() => setIsChildOpen(true)}
               >
                 Contact
               </Button>
-              <BasicModal isOpen={isChildOpen} toggleModal={toggleChildModal}>
-                <List>
-                  <ListItem>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <MailIcon />
-                      </ListItemIcon>
-                      {getEmail(owner)}
-                    </ListItemButton>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <PhoneIcon />
-                      </ListItemIcon>
-                      {getPhone(owner)}
-                    </ListItemButton>
-                  </ListItem>
-                </List>
+              <BasicModal isOpen={isChildOpen} toggleModal={toggleChildModal} dialogPaper={DialogPaperStyled}>
+                <Box display="flex" justifyContent="center" flexWrap="wrap">
+                  {owner.email && (
+                    <Button startIcon={<MailIcon sx={{color: '#54adff'}}/>} sx={{marginRight: '20px', padding: '10px'}}
+                            size="large" variant="text">{getEmail(owner)}</Button>
+                  )}
+                  {owner.phone && (
+                    <Button startIcon={<PhoneIcon sx={{color: '#54adff'}}/>} sx={{padding: '10px'}} size="large"
+                            variant="text">{getPhone(owner)}</Button>)}
+                </Box>
               </BasicModal>
             </Box>
           </>
