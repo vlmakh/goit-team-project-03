@@ -6,20 +6,20 @@ export const HeaderContainer = styled.div`
   display: flex;
   margin: 0 auto;
 
-  @media (min-width: 320px) {
+  @media (max-width: 767px) {
     width: 320px;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 20px 20px 0;
   }
 
   @media (min-width: 768px) {
     width: 768px;
-    padding-top: 24px;
+    padding: 24px 32px 0;
     margin-bottom: 80px;
   }
 
   @media (min-width: 1280px) {
-    padding-top: 30px;
+    padding: 32px 16px 0;
     margin-bottom: 30px;
     width: 1280px;
   }
