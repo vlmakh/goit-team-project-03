@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={Theme}>
-      <Toaster />
+      
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
@@ -75,7 +75,10 @@ const App = () => {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
+      
       {isOpenMenu && <MobileMenuMain isOpen={openMobileMenu} />}
+
+      <Toaster />
     </ThemeProvider>
   );
 };
