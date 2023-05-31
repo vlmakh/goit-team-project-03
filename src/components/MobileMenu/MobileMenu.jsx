@@ -46,10 +46,7 @@ const MobileMenuMain = ({ closeMenu }) => {
             </RegisterBtn>
           </MobileMenuAuthWrapper>
         )}
-        <MobileManuMainNavigation>
-          <MobileManuMainNavigationItem to="news" onClick={() => closeMenu()}>
-            News
-          </MobileManuMainNavigationItem>
+        <MobileManuMainNavigation>          
           <MobileManuMainNavigationItem
             to="notices/sell"
             onClick={() => closeMenu()}

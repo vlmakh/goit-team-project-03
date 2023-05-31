@@ -11,8 +11,8 @@ export const MobileMenu = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #fef9f9;
 `;
 
