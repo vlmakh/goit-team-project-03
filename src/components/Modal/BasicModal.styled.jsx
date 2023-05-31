@@ -9,12 +9,12 @@ export const DialogPaperStyled = styled(Paper)(({ theme }) => ({
   padding: '60px 0',
   [theme.breakpoints.down('tablet')]: {
     padding: '50px 0',
-    maxWidth: 280,
-    minWidth: 280,
+    maxWidth: '280px',
+    minWidth: '280px',
     borderRadius: 20,
   },
   [theme.breakpoints.up('tablet')]: {
-    minWidth: 608,
+    minWidth: '608px',
     borderRadius: 40
   },
 }));

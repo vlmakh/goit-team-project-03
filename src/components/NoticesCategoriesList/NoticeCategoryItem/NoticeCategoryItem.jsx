@@ -34,10 +34,15 @@ import {
 } from 'redux/notices/operations';
 import { toast } from 'react-hot-toast';
 import {useParams} from "react-router-dom";
+import DeleteAdverstimentModal from "../../Modal/DeleteAdverstimentModal";
 
 const NoticeCategoryItem = ({ petInfo }) => {
   const dispatch = useDispatch();
   const [isOpen, toggleModal] = useModal();
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const toggleDeleteModal = () => {
+    setIsDeleteModalOpen(isDeleteModalOpen => !isDeleteModalOpen);
+  };
   const params = useParams();
   const categoryParam = params.category;
 
@@ -100,6 +105,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
 
   const handleDelete = id => {
     dispatch(deleteNotice(id));
+    toggleDeleteModal();
   };
 
   const years = calculateTimeElapsedYears(dateOfBirth);
@@ -151,12 +157,17 @@ const NoticeCategoryItem = ({ petInfo }) => {
             </StyledCardButtonRight>
             {isCreatedByMe && (
               <StyledCardButtonRight
-                onClick={() => handleDelete(noticeId)}
+                onClick={toggleDeleteModal}
                 disable={isLoading}
               >
                 <GarbageCan />
               </StyledCardButtonRight>
             )}
+            <DeleteAdverstimentModal onRemove={() => handleDelete(noticeId)}
+              addName={formatComments(comments)}
+              isOpen={isDeleteModalOpen}
+              toggleModal={toggleDeleteModal}
+            />
           </RightButtonWrapper>
         </StyledCardImgWrapper>
 

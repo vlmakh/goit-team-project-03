@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { DialogContentTextStyled, DialogPaperStyled, DialogStyled, DialogTitleStyled } from './BasicModal.styled';
 
-const BasicModal = ({ isOpen, toggleModal, title, message, children }) => {
+const BasicModal = ({ isOpen, toggleModal, title, message, dialogPaper=DialogPaperStyled, children }) => {
   return (
     <div>
       <DialogStyled
@@ -11,7 +11,7 @@ const BasicModal = ({ isOpen, toggleModal, title, message, children }) => {
         onClose={toggleModal}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        PaperComponent={DialogPaperStyled}
+        PaperComponent={dialogPaper}
       >
         {title && (
           <DialogTitleStyled>{title}</DialogTitleStyled>
