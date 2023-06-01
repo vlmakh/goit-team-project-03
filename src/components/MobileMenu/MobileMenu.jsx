@@ -20,7 +20,7 @@ import { selectIsUserLogin, selectUser } from 'redux/auth/selectors';
 const MobileMenuMain = ({ closeMenu }) => {
   const isLogin = useSelector(selectIsUserLogin);
   const user = useSelector(selectUser);
-  const nickName = user.email ? user.email.split('@')[0] : '';
+  const nickName = user.name ?? user.email.split('@')[0];
 
   return (
     <MobileMenu>
