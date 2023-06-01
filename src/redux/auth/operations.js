@@ -35,7 +35,7 @@ export const login = createAsyncThunk(
       setAuthHeader(data.user.token);
       return data;
     } catch (error) {
-      toast.error(errorMsg);
+      toast.error('Login or password is incorrect');
       return rejectWithValue('');
     }
   }
