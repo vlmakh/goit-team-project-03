@@ -20,16 +20,19 @@ import { selectIsUserLogin, selectUser } from 'redux/auth/selectors';
 const MobileMenuMain = ({ closeMenu }) => {
   const isLogin = useSelector(selectIsUserLogin);
   const user = useSelector(selectUser);
-  const nickName = user.name ?? user.email.split('@')[0];
+  const nickName = user._id ? (user.name || user.email.split('@')[0]) : '';
 
   return (
     <MobileMenu>
       <MobileMenuWrapper>
         <Logo closeMobileMenu={closeMenu} />
+
         <MobileMenuCrossBtn type="button" onClick={closeMenu}>
           <CrossIcon />
         </MobileMenuCrossBtn>
+
       </MobileMenuWrapper>
+
       <MobileMenuAuthNav>
         {isLogin ? (
           <MobileMenuUser to="user" onClick={() => closeMenu()}>
