@@ -14,6 +14,7 @@ import {FormButton, IconButtonStyled} from './RegisterForm.styled';
 import { register } from 'redux/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from 'redux/auth/selectors';
+import { TailSpin } from 'react-loader-spinner';
 
 const validationSchema = yup.object({
   email: yup
@@ -58,7 +59,18 @@ const RegisteForm = () => {
     <>
       <FormBox onSubmit={formik.handleSubmit}>
         <FormTitle component="h2" sx={{ textAlign: 'center' }}>
-          Registration
+          Registration{' '}
+          
+            <TailSpin
+              height="32"
+              width="32"
+              color="darkgrey"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={isLoading}
+            />
         </FormTitle>
         <TextField
           fullWidth

@@ -1,15 +1,21 @@
 import { useState } from 'react';
-import { TextField, Typography, InputAdornment, IconButton } from '@mui/material';
+import {
+  TextField,
+  Typography,
+  InputAdornment,
+  IconButton,
+} from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { FormBox, FormTitle } from 'common/form/Form.styled';
-import {FormButton} from './LoginForm.styled';
+import { FormButton } from './LoginForm.styled';
 import { login } from 'redux/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from 'redux/auth/selectors';
+import { TailSpin } from 'react-loader-spinner';
 
 const validationSchema = yup.object({
   email: yup
@@ -21,13 +27,13 @@ const validationSchema = yup.object({
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (e) => {
+  const handleClickShowPassword = () => setShowPassword(show => !show);
+  const handleMouseDownPassword = e => {
     e.preventDefault();
   };
 
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading)
+  const isLoading = useSelector(selectIsLoading);
 
   const formik = useFormik({
     initialValues: {
@@ -36,7 +42,7 @@ const LoginForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-      dispatch(login(values))
+      dispatch(login(values));
       resetForm();
     },
   });
@@ -44,7 +50,7 @@ const LoginForm = () => {
   return (
     <>
       <FormBox onSubmit={formik.handleSubmit} component={'form'}>
-        <FormTitle component="h2" sx={{textAlign: 'center'}} >
+        <FormTitle component="h2" sx={{ textAlign: 'center' }}>
           Login
         </FormTitle>
         <TextField
@@ -68,7 +74,7 @@ const LoginForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
           InputProps={{
-            endAdornment:
+            endAdornment: (
               <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
@@ -79,13 +85,35 @@ const LoginForm = () => {
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
+            ),
           }}
         />
-        <FormButton type="submit" variant="contained" disabled={isLoading} aria-label="login">
-          Login
+        <FormButton
+          type="submit"
+          variant="contained"
+          disabled={isLoading}
+          aria-label="login"
+        >
+          Login{' '}
+          
+            <TailSpin
+              height="32"
+              width="32"
+              color="darkgrey"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={isLoading}
+            />
+          
         </FormButton>
-         <Typography component="p" sx={{ textAlign: 'center', mt: '15px', fontSize: '12px'}}>
-           If you don't have an account. <NavLink to="/register">Register</NavLink>
+        <Typography
+          component="p"
+          sx={{ textAlign: 'center', mt: '15px', fontSize: '12px' }}
+        >
+          If you don't have an account.{' '}
+          <NavLink to="/register">Register</NavLink>
         </Typography>
       </FormBox>
     </>
