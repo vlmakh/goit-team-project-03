@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://pets-back-end.onrender.com';
+// axios.defaults.baseURL = REACT_APP_MAIN_URL;
+axios.defaults.baseURL = 'https://yourpet.onrender.com';
 const errorMsg = "Something's wrong. Please update page and try again";
 
 const setAuthHeader = token => {
