@@ -62,6 +62,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
   const isLoading = useSelector(selectIsNoticeLoading);
   const { _id: userId } = useSelector(selectUser);
   const [isFavorite, setIsFavorite] = useState(favorite.includes(userId));
+  
   function calculateTimeElapsedYears(dateString) {
     const startDate = new Date(dateString.split('.').reverse().join('.'));
     const currentDate = new Date();
@@ -79,14 +80,15 @@ const NoticeCategoryItem = ({ petInfo }) => {
   }
 
   function formatComments(comment) {
-    if (comment && comment.length > 40) {
-      return comment.slice(0, 40) + '...';
+    if (comment && comment.length > 32) {
+      return comment.slice(0, 32) + '...';
     } else return comment;
   }
 
   const isLoggedIn = useSelector(selectIsUserLogin);
 
   const isCreatedByMe = owner ? userId === owner._id : owner;
+
   const handleToggleFavorite = noticeId => {
     if (isLoggedIn) {
       if (!isFavorite) {
@@ -179,6 +181,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
         </StyledCardImgWrapper>
 
         <StyledComent>{formatComments(comments)}</StyledComent>
+        
         <LearnMore onClick={toggleModal}>
           <span>Learn more</span> <Claw />
         </LearnMore>
