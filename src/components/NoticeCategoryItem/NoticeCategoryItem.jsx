@@ -56,7 +56,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
     imgURL,
     place,
     favorite,
-    comments,
+    title,   
     owner,
   } = petInfo;
   const isLoading = useSelector(selectIsNoticeLoading);
@@ -173,14 +173,14 @@ const NoticeCategoryItem = ({ petInfo }) => {
             
             <DeleteAdverstimentModal
               onRemove={() => handleDelete(noticeId)}
-              addName={formatComments(comments)}
+              addName={formatComments(title)}
               isOpen={isDeleteModalOpen}
               toggleModal={toggleDeleteModal}
             />
           </RightButtonWrapper>
         </StyledCardImgWrapper>
 
-        <StyledComent>{formatComments(comments)}</StyledComent>
+        <StyledComent>{formatComments(title)}</StyledComent>
         
         <LearnMore onClick={toggleModal}>
           <span>Learn more</span> <Claw />

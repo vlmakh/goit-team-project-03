@@ -5,7 +5,10 @@ import AddIcon from '@mui/icons-material/Add';
 import { Container, Title, AddButton, TitleContainer } from './PetsData.styled';
 
 import PetsList from '../PetsList';
-import PetsNotFound from './PetsNotFound';
+import {
+  Notification,
+  Text,
+} from 'components/Notification/Notification.styled';
 
 const PetsData = () => {
   const petsInfo = useSelector(selectPetsInfo);
@@ -21,7 +24,9 @@ const PetsData = () => {
       </TitleContainer>
 
       {!isLoading && !petsInfo.length > 0 ? (
-        <PetsNotFound />
+        <Notification>
+          <Text>You have not added any pets </Text>
+        </Notification>
       ) : (
         <PetsList pets={petsInfo} />
       )}

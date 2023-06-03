@@ -10,6 +10,10 @@ import { useParams } from 'react-router-dom';
 import { TailSpin } from 'react-loader-spinner';
 import { PageTitle } from 'components/PageTitle/PageTitle.styled';
 import Box from '@mui/material/Box';
+import {
+  Notification,
+  Text,
+} from 'components/Notification/Notification.styled';
 
 import {
   selectNotices,
@@ -102,7 +106,9 @@ const NoticesPage = () => {
       )}
 
       {!isLoading && notices.length === 0 && (
-        <div>There are no notices in this category yet</div>
+        <Notification>
+          <Text>There are no pets in this category yet</Text>
+        </Notification>
       )}
 
       {totalPages > 1 && (
