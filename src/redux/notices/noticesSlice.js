@@ -84,10 +84,10 @@ export const noticesSlice = createSlice({
           fetchNoticesByCategory.pending,
           deleteNotice.pending,
           fetchNoticesFavourite.pending,
-          addNotice.pending,
-          makeNoticeFavourite.pending,
-          removeNoticeFavourite.pending,
-          unMakeNoticeFavourite.pending
+          addNotice.pending
+          // makeNoticeFavourite.pending,
+          // removeNoticeFavourite.pending,
+          // unMakeNoticeFavourite.pending
         ),
         state => {
           state.isLoading = true;
