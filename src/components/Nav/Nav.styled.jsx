@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const MaineNavigation = styled.nav`
+export const MainNavigation = styled.nav`
   display: flex;
   gap: 15px;
   margin-right: 30px;
@@ -11,7 +11,7 @@ export const MaineNavigation = styled.nav`
   }
 `;
 
-export const MaineNavigationLink = styled(NavLink)`
+export const MainNavigationLink = styled(NavLink)`
   font-weight: 500;
   font-size: 20px;
   line-height: 27px;

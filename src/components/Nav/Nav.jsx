@@ -1,11 +1,11 @@
-import { MaineNavigation, MaineNavigationLink } from './Nav.styled';
+import { MainNavigation, MainNavigationLink } from './Nav.styled';
 
 const Nav = () => {
   return (
-    <MaineNavigation>      
-      <MaineNavigationLink to="notices/sell">Notices</MaineNavigationLink>
-      <MaineNavigationLink to="friends">Our friends</MaineNavigationLink>
-    </MaineNavigation>
+    <MainNavigation>      
+      <MainNavigationLink to="notices/sell">Notices</MainNavigationLink>
+      <MainNavigationLink to="friends">Our friends</MainNavigationLink>
+    </MainNavigation>
   );
 };
 
