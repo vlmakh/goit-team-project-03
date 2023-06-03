@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsUserLogin, selectUser } from 'redux/auth/selectors';
 import { selectIsNoticeLoading } from 'redux/notices/selectors';
-import {deleteNotice, unMakeNoticeFavourite} from 'redux/notices/operations';
+import { deleteNotice, unMakeNoticeFavourite } from 'redux/notices/operations';
 
-import { ReactComponent as Femail } from './icons/famail.svg';
-import { ReactComponent as Male } from './icons/male.svg';
-import { ReactComponent as Favorite } from './icons/favorite.svg';
-import { ReactComponent as FavoriteChecked } from './icons/favoriteChecked.svg';
-import { ReactComponent as Location } from './icons/lacation.svg';
-import { ReactComponent as Age } from './icons/old.svg';
-import { ReactComponent as GarbageCan } from './icons/trash.svg';
-import { ReactComponent as Claw } from './icons/claw.svg';
+import {
+  MdMale,
+  MdFemale,
+  MdFavoriteBorder,
+  MdFavorite,
+  MdOutlineAccessTime,
+} from 'react-icons/md';
+import { HiOutlineLocationMarker } from 'react-icons/hi';
+import { RiDeleteBinLine } from 'react-icons/ri';
+import { ReactComponent as Claw } from 'images/icons/claw.svg';
 import useModal from 'hooks/useModal';
 import ModalNotice from 'components/ModalNotice/ModalNotice';
 
@@ -33,8 +35,8 @@ import {
   removeNoticeFavourite,
 } from 'redux/notices/operations';
 import { toast } from 'react-hot-toast';
-import {useParams} from "react-router-dom";
-import DeleteAdverstimentModal from "components/Modal/DeleteAdverstimentModal";
+import { useParams } from 'react-router-dom';
+import DeleteAdverstimentModal from 'components/Modal/DeleteAdverstimentModal';
 
 const NoticeCategoryItem = ({ petInfo }) => {
   const dispatch = useDispatch();
@@ -94,7 +96,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
         if (categoryParam === 'favourite') {
           dispatch(removeNoticeFavourite(noticeId));
         } else {
-          dispatch(unMakeNoticeFavourite(noticeId))
+          dispatch(unMakeNoticeFavourite(noticeId));
         }
         setIsFavorite(!isFavorite);
       }
@@ -113,12 +115,10 @@ const NoticeCategoryItem = ({ petInfo }) => {
 
   function formatCategory(category) {
     if (category === 'lost-found') {
-      return 'lost/found'
-    }
-    else if (category === 'for-free') {
-      return 'in good hands'
-    }
-    else return category
+      return 'lost/found';
+    } else if (category === 'for-free') {
+      return 'in good hands';
+    } else return category;
   }
 
   return (
@@ -137,33 +137,38 @@ const NoticeCategoryItem = ({ petInfo }) => {
               target="_blank"
               href={`https://www.google.com/maps/place/${place}`}
             >
-              <Location />
+              <HiOutlineLocationMarker size="24" color='#54ADFF' />
               <span>{place}</span>
             </StyledCardLinkBottom>
             <StyledCardButtonBottom>
-              <Age />
+              <MdOutlineAccessTime size="24" color='#54ADFF' />
               <span>{years < 1 ? monthes + ' mon' : years + ' year'}</span>
             </StyledCardButtonBottom>
             <StyledCardButtonBottom>
-              {sex === 'male' ? <Male /> : <Femail />}
-              <span>{'sex'}</span>
+              {sex === 'male' ? <MdMale size="24" color='#54ADFF' /> : <MdFemale size="24" color='#54ADFF' />}
+              <span>{sex}</span>
             </StyledCardButtonBottom>
           </BottomButtonWrapper>
           <RightButtonWrapper>
             <StyledCardButtonRight
               onClick={() => handleToggleFavorite(noticeId)}
             >
-              {isFavorite ? <FavoriteChecked /> : <Favorite />}
+              {isFavorite ? (
+                <MdFavorite size="24" color='#54ADFF' />
+              ) : (
+                <MdFavoriteBorder size="24" color='#54ADFF' />
+              )}
             </StyledCardButtonRight>
             {isCreatedByMe && (
               <StyledCardButtonRight
                 onClick={toggleDeleteModal}
                 disable={isLoading}
               >
-                <GarbageCan />
+                <RiDeleteBinLine size="24" color='#54ADFF' />
               </StyledCardButtonRight>
             )}
-            <DeleteAdverstimentModal onRemove={() => handleDelete(noticeId)}
+            <DeleteAdverstimentModal
+              onRemove={() => handleDelete(noticeId)}
               addName={formatComments(comments)}
               isOpen={isDeleteModalOpen}
               toggleModal={toggleDeleteModal}

@@ -1,6 +1,6 @@
-import { styled } from '@mui/system';
+import styled from '@emotion/styled';
 
-export const StyledCardWrapper = styled('div')`
+export const StyledCardWrapper = styled.div`
   position: relative;
   min-width: 280px;
   max-width: 286px;
@@ -10,7 +10,7 @@ export const StyledCardWrapper = styled('div')`
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
 `;
 
-export const StyledCardImgWrapper = styled('div')`
+export const StyledCardImgWrapper = styled.div`
   position: relative;
   min-width: 280px;
   width: 286px;
@@ -24,7 +24,7 @@ export const StyledCardImgWrapper = styled('div')`
   }
 `;
 
-export const BottomButtonWrapper = styled('div')`
+export const BottomButtonWrapper = styled.div`
   position: absolute;
   top: 248px;
   display: flex;
@@ -33,7 +33,7 @@ export const BottomButtonWrapper = styled('div')`
   transform: translateX(-50%);
 `;
 
-export const RightButtonWrapper = styled('div')`
+export const RightButtonWrapper = styled.div`
   top: 12px;
   right: 12px;
   position: absolute;
@@ -42,7 +42,7 @@ export const RightButtonWrapper = styled('div')`
   gap: 16px;
 `;
 
-export const StyledCardButtonBottom = styled('button')`
+export const StyledCardButtonBottom = styled.button`
   width: 80px;
   height: 28px;
   display: flex;
@@ -63,7 +63,8 @@ export const StyledCardButtonBottom = styled('button')`
   border: none;
   border-radius: 15px;
 `;
-export const StyledCardLinkBottom = styled('a')`
+
+export const StyledCardLinkBottom = styled.a`
   width: 80px;
   height: 28px;
   display: flex;
@@ -84,6 +85,7 @@ export const StyledCardLinkBottom = styled('a')`
   border: none;
   border-radius: 15px;
   cursor: pointer;
+
   &:hover {
     background: linear-gradient(to bottom, #419ef1 0%, #9bd0ff 100%);
     color: white;
@@ -92,7 +94,8 @@ export const StyledCardLinkBottom = styled('a')`
     }
   }
 `;
-export const StyledCardButtonRight = styled('button')`
+
+export const StyledCardButtonRight = styled.button`
   background-color: #cce4fb;
   display: flex;
   justify-content: center;
@@ -102,6 +105,7 @@ export const StyledCardButtonRight = styled('button')`
   width: 40px;
   height: 40px;
   cursor: pointer;
+
   &:hover {
     background: linear-gradient(to bottom, #419ef1 0%, #9bd0ff 100%);
     color: white;
@@ -111,7 +115,7 @@ export const StyledCardButtonRight = styled('button')`
   }
 `;
 
-export const CategoryBadge = styled('div')`
+export const CategoryBadge = styled.div`
   top: 16px;
   left: 0;
   position: absolute;
@@ -129,7 +133,7 @@ export const CategoryBadge = styled('div')`
   min-width: 126px;
 `;
 
-export const LearnMore = styled('button')`
+export const LearnMore = styled.button`
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
@@ -152,6 +156,7 @@ export const LearnMore = styled('button')`
   svg {
     display: none;
   }
+
   &:hover {
     border: none;
     background: linear-gradient(to bottom, #419ef1 0%, #9bd0ff 100%);
@@ -163,7 +168,7 @@ export const LearnMore = styled('button')`
   }
 `;
 
-export const StyledComent = styled('p')`
+export const StyledComent = styled.p`
   margin: 20px;
   font-family: 'Manrope', sans-serif;
   font-style: 'Bold';
