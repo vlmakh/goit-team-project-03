@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { ReactComponent as PlusIcon } from './icons/plus.svg';
+// import { ReactComponent as PlusIcon } from './icons/plus.svg';
+import { HiPlus } from 'react-icons/hi';
 import {
   AddPetStyledBtn,
   AddPetStyledBtnMobile,
@@ -14,7 +15,7 @@ import { toast } from 'react-hot-toast';
 
 export const NoticesAddPetBtn = () => {
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
-  const isLoggeIn = useSelector(selectIsUserLogin)
+  const isLoggedIn = useSelector(selectIsUserLogin)
   const handleNavLinkClick = () => {
     toast.error('You should be authorized.');
   };
@@ -22,26 +23,26 @@ export const NoticesAddPetBtn = () => {
   return (
     <>      
       {isMobileScreen ? (
-        isLoggeIn ? (
+        isLoggedIn ? (
           <AddPetStyledLinkMobile to={'/add-pet'}>
-            <PlusIcon />
-            <span>Add Pet</span>
+            <HiPlus size='24' />
+            Add pet
           </AddPetStyledLinkMobile>
         ) : (
           <AddPetStyledBtnMobile onClick={() => handleNavLinkClick()}>
-            <PlusIcon />
-            <span>Add Pet</span>
+            <HiPlus size='24' />
+            Add pet
           </AddPetStyledBtnMobile>
         )
-      ) : isLoggeIn ? (
+      ) : isLoggedIn ? (
         <AddPetStyledLink to={'/add-pet'}>
-          <span>Add Pet</span>
-          <PlusIcon />
+          Add pet
+          <HiPlus size='24' />
         </AddPetStyledLink>
       ) : (
         <AddPetStyledBtn onClick={() => handleNavLinkClick()}>
-          <span>Add Pet</span>
-          <PlusIcon />
+          Add pet
+          <HiPlus size='24' />
         </AddPetStyledBtn>
       )}
     </>
