@@ -34,7 +34,7 @@ import {
 } from 'redux/notices/operations';
 import { toast } from 'react-hot-toast';
 import {useParams} from "react-router-dom";
-import DeleteAdverstimentModal from "../../Modal/DeleteAdverstimentModal";
+import DeleteAdverstimentModal from "components/Modal/DeleteAdverstimentModal";
 
 const NoticeCategoryItem = ({ petInfo }) => {
   const dispatch = useDispatch();

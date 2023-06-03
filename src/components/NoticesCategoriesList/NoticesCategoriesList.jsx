@@ -1,5 +1,5 @@
 import React, {forwardRef} from 'react';
-import NoticeCategoryItem from './NoticeCategoryItem/NoticeCategoryItem';
+import NoticeCategoryItem from 'components/NoticeCategoryItem/NoticeCategoryItem';
 import { CategoriesListWrapper } from './NoticesCategoriesList.styled';
 
 const NoticesCategoriesList = forwardRef(({ notices }, ref) => {

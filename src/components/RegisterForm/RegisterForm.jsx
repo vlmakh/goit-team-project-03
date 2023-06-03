@@ -142,17 +142,16 @@ const RegisteForm = () => {
           aria-label="register"
         >
           Registration{' '}
-          
-            <TailSpin
-              height="32"
-              width="32"
-              color="darkgrey"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{marginLeft: '20px'}}
-              wrapperClass=""
-              visible={isLoading}
-            />
+          <TailSpin
+            height="32"
+            width="32"
+            color="darkgrey"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{ marginLeft: '20px' }}
+            wrapperClass=""
+            visible={isLoading}
+          />
         </FormButton>
         <Typography
           component="p"
