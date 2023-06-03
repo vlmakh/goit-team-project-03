@@ -41,7 +41,6 @@ export const noticesSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(deleteNotice.fulfilled, (state, action) => {
-        console.log(action.payload);
         return {
           items: [
             ...state.items.filter(
@@ -64,22 +63,12 @@ export const noticesSlice = createSlice({
           notice => notice._id === action.payload._id
         );
         state.items.splice(index, 1, action.payload);
-
-        return {
-          ...state,
-          isLoading: false,
-        };
       })
       .addCase(unMakeNoticeFavourite.fulfilled, (state, action) => {
         const index = state.items.findIndex(
           notice => notice._id === action.payload._id
         );
         state.items.splice(index, 1, action.payload);
-
-        return {
-          ...state,
-          isLoading: false,
-        };
       })
       .addCase(removeNoticeFavourite.fulfilled, (state, action) => {
         return {
