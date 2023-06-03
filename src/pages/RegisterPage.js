@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const RegisterPage = () => {
   useEffect(() => {
-    document.title = 'YourPet | Rregister';
+    document.title = 'YourPet | Register';
   });
 
   return <RegisteForm />;
