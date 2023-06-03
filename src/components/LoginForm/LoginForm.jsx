@@ -102,7 +102,7 @@ const LoginForm = () => {
               color="darkgrey"
               ariaLabel="tail-spin-loading"
               radius="1"
-              wrapperStyle={{}}
+              wrapperStyle={{marginLeft: '20px'}}
               wrapperClass=""
               visible={isLoading}
             />

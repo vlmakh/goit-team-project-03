@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import {
-  TextField,
-  Typography,
-  InputAdornment,
-} from '@mui/material';
+import { TextField, Typography, InputAdornment } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { FormBox, FormTitle } from 'common/form/Form.styled';
-import {FormButton, IconButtonStyled} from './RegisterForm.styled';
+import { FormButton, IconButtonStyled } from './RegisterForm.styled';
 import { register } from 'redux/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from 'redux/auth/selectors';
@@ -39,7 +35,7 @@ const RegisteForm = () => {
   };
 
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading)
+  const isLoading = useSelector(selectIsLoading);
 
   const formik = useFormik({
     initialValues: {
@@ -60,17 +56,16 @@ const RegisteForm = () => {
       <FormBox onSubmit={formik.handleSubmit}>
         <FormTitle component="h2" sx={{ textAlign: 'center' }}>
           Registration{' '}
-          
-            <TailSpin
-              height="32"
-              width="32"
-              color="darkgrey"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={isLoading}
-            />
+          <TailSpin
+            height="32"
+            width="32"
+            color="darkgrey"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={isLoading}
+          />
         </FormTitle>
         <TextField
           fullWidth
@@ -140,8 +135,24 @@ const RegisteForm = () => {
           }}
         />
 
-        <FormButton type="submit" variant="contained" disabled={isLoading}  aria-label="register">
-          Registration
+        <FormButton
+          type="submit"
+          variant="contained"
+          disabled={isLoading}
+          aria-label="register"
+        >
+          Registration{' '}
+          
+            <TailSpin
+              height="32"
+              width="32"
+              color="darkgrey"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{marginLeft: '20px'}}
+              wrapperClass=""
+              visible={isLoading}
+            />
         </FormButton>
         <Typography
           component="p"
