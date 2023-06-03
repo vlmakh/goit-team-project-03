@@ -159,6 +159,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
                 <MdFavoriteBorder size="24" color='#54ADFF' />
               )}
             </StyledCardButtonRight>
+
             {isCreatedByMe && (
               <StyledCardButtonRight
                 onClick={toggleDeleteModal}
@@ -167,6 +168,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
                 <RiDeleteBinLine size="24" color='#54ADFF' />
               </StyledCardButtonRight>
             )}
+            
             <DeleteAdverstimentModal
               onRemove={() => handleDelete(noticeId)}
               addName={formatComments(comments)}
