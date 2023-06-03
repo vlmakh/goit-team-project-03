@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Notification = styled.div`
-  width: 280px;
+  /* width: 280px; */
 
   border-radius: 20px;
   padding: 25px;
@@ -11,11 +11,11 @@ export const Notification = styled.div`
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    width: 703px;
+    /* width: 703px; */
   }
 
   @media screen and (min-width: 1280px) {
-    width: 821px;
+    /* width: 821px; */
   }
 `;
 

@@ -7,11 +7,15 @@ import { fetchNoticesByCategory } from 'redux/notices/operations';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
+import { TailSpin } from 'react-loader-spinner';
 import { PageTitle } from 'components/PageTitle/PageTitle.styled';
 import Box from '@mui/material/Box';
 
-import { selectNotices, selectTotalPages } from 'redux/notices/selectors';
+import {
+  selectNotices,
+  selectTotalPages,
+  selectIsNoticeLoading,
+} from 'redux/notices/selectors';
 
 const NoticesPage = () => {
   const [page, setPage] = useState(1);
@@ -20,6 +24,7 @@ const NoticesPage = () => {
   const dispatch = useDispatch();
   const notices = useSelector(selectNotices);
   const totalPages = useSelector(selectTotalPages);
+  const isLoading = useSelector(selectIsNoticeLoading);
 
   const params = useParams();
   const category = params.category;
@@ -40,8 +45,8 @@ const NoticesPage = () => {
   }, [dispatch, page, category, search]);
 
   const handleCategoryChange = () => {
-    setPage(1)
-  }
+    setPage(1);
+  };
 
   const handlePageChange = (e, page) => {
     categoriesListRef.current.scrollIntoView({
@@ -69,14 +74,43 @@ const NoticesPage = () => {
           justifyContent: 'space-between',
         }}
       >
-        <NoticesCategoriesNav onCategoryChange={handleCategoryChange}/>
+        <NoticesCategoriesNav onCategoryChange={handleCategoryChange} />
         <NoticesAddPetBtn />
       </Box>
 
-      <NoticesCategoriesList ref={categoriesListRef} notices={notices} />
+      {isLoading ? (
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '40px',
+          }}
+        >
+          <TailSpin
+            height="120"
+            width="120"
+            color="#54adff"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={isLoading}
+          />
+        </Box>
+      ) : (
+        <NoticesCategoriesList ref={categoriesListRef} notices={notices} />
+      )}
+
+      {!isLoading && notices.length === 0 && (
+        <div>There are no notices in this category yet</div>
+      )}
 
       {totalPages > 1 && (
-        <PaginationBox page={page} onChange={handlePageChange} pagesCount={totalPages} />
+        <PaginationBox
+          page={page}
+          onChange={handlePageChange}
+          pagesCount={totalPages}
+        />
       )}
     </>
   );
