@@ -85,6 +85,12 @@ const NoticeCategoryItem = ({ petInfo }) => {
     } else return comment;
   }
 
+  function formatPlace(place) {
+    if (place && place.length > 8) {
+      return place.slice(0, 7) + '...';
+    } else return place;
+  }
+
   const isLoggedIn = useSelector(selectIsUserLogin);
 
   const isCreatedByMe = userId === owner._id ? true : false;
@@ -140,7 +146,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
               href={`https://www.google.com/maps/place/${place}`}
             >
               <HiOutlineLocationMarker size="24" color='#54ADFF' />
-              <span>{place}</span>
+              <span>{formatPlace(place)}</span>
             </StyledCardLinkBottom>
             <StyledCardButtonBottom>
               <MdOutlineAccessTime size="24" color='#54ADFF' />
