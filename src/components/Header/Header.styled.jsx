@@ -9,18 +9,16 @@ export const HeaderContainer = styled.div`
   @media (max-width: 767px) {
     width: 320px;
     justify-content: space-between;
-    padding: 20px 20px 0;
+    padding: 20px;
   }
 
   @media (min-width: 768px) {
     width: 768px;
-    padding: 24px 32px 0;
-    margin-bottom: 80px;
+    padding: 24px 32px;
   }
 
   @media (min-width: 1280px) {
-    padding: 32px 16px 0;
-    margin-bottom: 30px;
+    padding: 32px 16px;
     width: 1280px;
   }
 `;
@@ -41,4 +39,8 @@ export const BurgerMenuBtn = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+
+  @media (min-width: 1280px) {
+    display: none;
+  }
 `;
