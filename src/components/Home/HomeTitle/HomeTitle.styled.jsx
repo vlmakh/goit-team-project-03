@@ -12,7 +12,7 @@ export const Title = styled.h1`
 
   @media (min-width: 1280px) {
     line-height: 1.3;
-    margin-top: 159px;
-    width: 500px;
+    margin-top: 140px;
+    width: 520px;
   }
 `;

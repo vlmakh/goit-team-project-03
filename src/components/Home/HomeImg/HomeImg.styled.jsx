@@ -1,69 +1,40 @@
 import styled from '@emotion/styled';
 
 export const ImageWrapper = styled.div`
-  position: absolute;
-  top: 108px;
-  right: -60px;
-  width: 474px;
-  height: 394px;
-
-  @media (min-width: 768px) {
-    top: 200px;
-    right: -260px;
-    width: 1085px;
-    height: 918px;
-  }
+  position: relative;
+  height: 100%;  
+  margin-top: 24px;
 
   @media (min-width: 1280px) {
-    top: 30px;
-    right: 0;
-    width: 917px;
-    height: 920px;
-  }
-`;
-
-export const CatImg = styled.img`
-  position: absolute;
-  top: 197px;
-  right: 25px;
-
-  @media (min-width: 768px) {
-    top: 490px;
-    right: 250px;
-  }
-  @media (min-width: 1280px) {
-    top: 405px;
-    right: 50px;
-  }
+    margin-top: 0;
+    width: 500px;
+  }  
 `;
 
 export const DogImg = styled.img`
   position: absolute;
   top: 0;
   right: 0;
+`;
+
+export const CatImg = styled.img`
+  position: absolute;
+  top: 150px;
+  right: -30px;
 
   @media (min-width: 768px) {
-    top: 40px;
-    right: 160px;
-  }
-
-  @media (min-width: 1280px) {
-    top: -35px;
-    right: -40px;
-  }
+    top: 400px;
+    right: 0px;
+  }  
 `;
 
 export const DoggyImg = styled.img`
   position: absolute;
-  top: 130px;
-  right: 243px;
+  top: 80px;
+  right: 210px;
 
   @media (min-width: 768px) {
-    top: 320px;
-    right: 665px;
-  }
-  @media (min-width: 1280px) {
-    top: 230px;
-    right: 463px;
+    top: 240px;
+    right: 510px;
   }
 `;

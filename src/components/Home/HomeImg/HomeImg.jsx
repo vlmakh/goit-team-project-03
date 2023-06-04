@@ -19,24 +19,27 @@ const HomeImg = () => {
   return (
     <ImageWrapper>
       <CatImg
-        srcSet={`${cat_sm_1x} 219w, ${cat_sm_2x} 438w, ${cat_md_1x} 362w, ${cat_md_2x} 724w`}
+        srcSet={`${cat_sm_1x} 219w, ${cat_sm_2x} 437w , ${cat_md_1x} 454w,${cat_md_2x} 907w`}
         src={cat_sm_1x}
-        sizes="(max-width: 767px) 219px, (max-width: 767px) 438px, (min-width: 768px) 362px, (min-width: 768px) 724px, 100vw"
-        alt="Background img"
+        sizes="(max-width: 767px) 219px, (max-width: 767px) 437px, (min-width: 768px) 454px, (min-width: 768px) 907px, 100vw"
+        alt="cat"
+        loading="lazy"
       />
 
       <DogImg
-        srcSet={`${dog_sm_1x} 219w, ${dog_sm_2x} 438w, ${dog_md_1x} 532w, ${dog_md_2x} 1064w`}
+        srcSet={`${dog_sm_1x} 299w, ${dog_sm_2x} 597w , ${dog_md_1x} 729w,${dog_md_2x} 1457w`}
         src={dog_sm_1x}
-        sizes="(max-width: 767px) 219px, (max-width: 768px) 438px, (min-width: 768px) 532px, (min-width: 768px) 1064px, 100vw"
-        alt="Background img"
+        sizes="(max-width: 767px) 299px, (max-width: 767px) 597px, (min-width: 768px) 729px, (min-width: 768px) 1457px, 100vw"
+        alt="dog"
+        loading="lazy"
       />
 
       <DoggyImg
-        srcSet={`${dog2_sm_1x} 219w, ${dog2_sm_2x} 438w, ${dog2_md_1x} 426w, ${dog2_md_2x} 852w`}
+        srcSet={`${dog2_sm_1x} 289w, ${dog2_sm_2x} 576w , ${dog2_md_1x} 597w,${dog2_md_2x} 1194w`}
         src={dog2_sm_1x}
-        sizes="(max-width: 767px) 219px, (max-width: 768px) 438px, (min-width: 768px) 426px, (min-width: 768px) 852px, 100vw"
-        alt="Background img"
+        sizes="(max-width: 767px) 289px, (max-width: 767px) 576px, (min-width: 768px) 597px, (min-width: 768px) 1194px, 100vw"
+        alt="dog"
+        loading="lazy"
       />
     </ImageWrapper>
   );
