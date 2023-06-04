@@ -1,6 +1,6 @@
 import SharedLayout from 'components/SharedLayout';
 import { lazy, useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { getCurrentUser } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -34,7 +34,6 @@ const App = () => {
 
   return (
     <ThemeProvider theme={Theme}>
-      
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
@@ -62,12 +61,7 @@ const App = () => {
               <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
             }
           />
-          <Route
-            path="notices/"
-            element={
-              <PublicRoute redirectTo="sell" element={<NoticesPage />} />
-            }
-          />
+          <Route path="notices" element={<Navigate to="sell" />} />
           <Route path="notices/:category" element={<NoticesPage />} />
 
           <Route path="friends" element={<OurFriendsPage />} />
@@ -75,7 +69,7 @@ const App = () => {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
-      
+
       {isOpenMenu && <MobileMenuMain isOpen={openMobileMenu} />}
 
       <Toaster />

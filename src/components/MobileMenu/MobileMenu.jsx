@@ -51,7 +51,7 @@ const MobileMenuMain = ({ closeMenu }) => {
         )}
         <MobileManuMainNavigation>          
           <MobileManuMainNavigationItem
-            to="notices/sell"
+            to="notices"
             onClick={() => closeMenu()}
           >
             Notices

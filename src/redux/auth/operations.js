@@ -22,7 +22,7 @@ export const register = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      toast.error(errorMsg);
+      toast.error(error.response.data);
       return rejectWithValue('');
     }
   }
