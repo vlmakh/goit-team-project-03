@@ -2,7 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchNoticeById } from './operations';
 
 const initialState = {
-  item: null,
+  item: {
+    name: '',
+    category: '',
+    dateOfBirth: '',
+    breed: '',
+    place: '',
+    sex: '',
+    comments: '',
+    owner: '',
+  },
   isLoading: false,
 };
 
