@@ -59,7 +59,6 @@ export const noticesSlice = createSlice({
         };
       })
       .addCase(makeNoticeFavourite.fulfilled, (state, action) => {
-        console.log(action.payload);
         const index = state.items.findIndex(
           notice => notice._id === action.payload._id
         );
