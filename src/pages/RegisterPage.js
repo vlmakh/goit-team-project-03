@@ -1,4 +1,4 @@
-import RegisteForm from 'components/RegisterForm';
+import RegisterForm from 'components/RegisterForm';
 import { useEffect } from 'react';
 
 const RegisterPage = () => {
@@ -6,7 +6,7 @@ const RegisterPage = () => {
     document.title = 'YourPet | Register';
   });
 
-  return <RegisteForm />;
+  return <RegisterForm />;
 };
 
 export default RegisterPage;

@@ -27,7 +27,7 @@ const validationSchema = yup.object({
     .required('Confirm password is required'),
 });
 
-const RegisteForm = () => {
+const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(show => !show);
   const handleMouseDownPassword = e => {
@@ -164,4 +164,4 @@ const RegisteForm = () => {
   );
 };
 
-export default RegisteForm;
+export default RegisterForm;

@@ -6,7 +6,7 @@ export const FormBox = styled('form')(({ theme }) => ({
   flexDirection: 'column',
   gap: '24px',
   width: '280px',
-  margin: '50px auto 0',
+  margin: '24px auto 0',
   boxShadow: ' 3px 8px 14px rgba(136, 198, 253, 0.19)',
   backgroundColor: '#fff',
   padding: '40px 20px',
@@ -14,7 +14,7 @@ export const FormBox = styled('form')(({ theme }) => ({
   [theme.breakpoints.up('tablet')]: {
     padding: '60px 75px',
     width: '608px',
-    margin: '82px auto 0',
+    margin: '52px auto 0',
   },
 }));
 
