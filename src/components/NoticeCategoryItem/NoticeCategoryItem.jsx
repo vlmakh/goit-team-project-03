@@ -87,7 +87,7 @@ const NoticeCategoryItem = ({ petInfo }) => {
 
   const isLoggedIn = useSelector(selectIsUserLogin);
 
-  const isCreatedByMe = owner ? userId === owner._id : owner;
+  const isCreatedByMe = userId === owner._id ? true : false;
 
   const handleToggleFavorite = noticeId => {
     if (isLoggedIn) {
