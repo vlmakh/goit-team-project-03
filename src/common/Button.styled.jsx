@@ -42,14 +42,9 @@ export const ButtonLink = styled(NavLink)`
 `;
 
 export const ButtonFilled = styled.button`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  width: 248px;
+  position: relative;  
+  width: 240px;
   height: 40px;
-
   font-weight: 700;
   font-size: 16px;
   color: #fef9f9;
